@@ -10,7 +10,7 @@ for (let i = 0; i < 10; i++) {
     
     const card =
        ` <div class="card" style="width: 18rm;">
-        <a href="#"><img src= "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" alt= "producto ${1, 2}">
+        <a href="#"><img src= "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" alt= "producto ${i}">
         <div class="card-body">
           <h5 class="card-title">coches ${i}</h5>
           <p class="card-text"></p>
