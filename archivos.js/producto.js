@@ -10,7 +10,7 @@ class productos {
 }
  let prod = new productos("mustang", "muy caro", 1, 100000000,  "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg") 
    
-let data = `[{
+let data = [{
   "id": 1,
   "autos": "Tag: The Assassination Game (a.k.a. Everybody Gets It in the End)",
   "detail": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
@@ -80,7 +80,7 @@ let data = `[{
   "img": "http://dummyimage.com/227x100.png/5fa2dd/ffffff",
   "price": 84,
   "stock": 3
-// }]`
+}]
 
 
 
