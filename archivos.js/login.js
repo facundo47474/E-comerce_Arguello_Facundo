@@ -7,12 +7,11 @@ uForm.addEventListener("submit", (e) => {
     let formData = new FormData(uForm);
     let nEmail = formData.get("email");
     let nPassword = formData.get("password");
-
     if (uEmail === nEmail && uPassword === nPassword) {
         localStorage.setItem("session", nEmail);
-        window.location.href = "../e-comerce.html";
+        window.location.href = "../index.html";
     } else {
         alert("Email o Password incorrectos");
-    }
+    } 
 });
 

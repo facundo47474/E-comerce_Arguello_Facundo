@@ -1,0 +1,103 @@
+.card {
+    background: #2c2c2c; /* Fondo oscuro para las cards */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+    overflow: hidden; /* Esconde el desbordamiento */
+    position: relative; /* Posicionamiento relativo para el efecto LED */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación de transformación */
+    margin: 20px; /* Margen */
+    padding: 20px; /* Espaciado interno */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levanta la card al pasar el mouse */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6); /* Aumenta la sombra al hacer hover */
+}
+
+/* Efecto LED en los costados */
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10px; /* Ancho de las luces LED */
+    height: 100%;
+    border-radius: 15px; /* Bordes redondeados para las luces */
+    transition: background 0.3s ease; /* Animación del fondo */
+}
+
+.card::before {
+    left: -10px; /* Alinea a la izquierda */
+    background: linear-gradient(to bottom, #ff0080, #ff8c00); /* Gradiente de color */
+}
+
+.card::after {
+    right: -10px; /* Alinea a la derecha */
+    background: linear-gradient(to bottom, #00bfff, #ff0080); /* Gradiente de color */
+}
+
+/* Animación de parpadeo de las luces LED */
+@keyframes ledBlink {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.card:hover::before,
+.card:hover::after {
+    animation: ledBlink 1s infinite; /* Activar animación al pasar el mouse */
+}
+
+/* Estilo del contenido dentro de la card */
+.card-content {
+    color: #fff; /* Color del texto */
+    text-align: center; /* Centrar texto */
+}
+
+.card-title {
+    font-size: 1.5em; /* Tamaño del título */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+}
+
+.card-description {
+    font-size: 1em; /* Tamaño de la descripción */
+    margin-bottom: 15px; /* Espaciado debajo de la descripción */
+}
+
+.card-button {
+    background-color: #ff0080; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Animación de color de fondo */
+}
+
+.card-button:hover {
+    background-color: #ff8c00; /* Cambia el color al hacer hover */
+}
+
+
+.search-container {
+    margin: 20px; /* Espaciado alrededor del contenedor de búsqueda */
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+#searchInput {
+    padding: 10px; /* Espaciado interno */
+    border: 2px solid #ff0080; /* Color de borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1em; /* Tamaño de la fuente */
+    width: 300px; /* Ancho del campo de entrada */
+    transition: border-color 0.3s ease; /* Animación para el color del borde */
+}
+
+#searchInput:focus {
+    border-color: #00bfff; /* Cambia el color del borde al hacer foco */
+    outline: none; /* Quitar el contorno por defecto */
+}

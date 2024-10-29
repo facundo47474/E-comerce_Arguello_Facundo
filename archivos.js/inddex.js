@@ -1,7 +1,7 @@
 let h1 = document.querySelector("h1").innerHTML = "productos"; 
 
 
-let cards = [
+let data = [
     { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'https://example.com/mustang.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
     { id: 2, "name": 'Chevrolet Camaro', "description": 'Potente y ágil, un verdadero deportivo.', "image": 'https://example.com/camaro.jpg', "price": "20.000.000", "stock": "3", "category": 'Nuevo' },
     { id: 3, "name": 'Dodge Charger', "description": 'Elegancia y potencia en un solo paquete.', "image": 'https://example.com/charger.jpg', "price": "33.000.000", "stock": "3", "category": 'Nuevo' },
@@ -23,36 +23,37 @@ let cards = [
 ];
 
 
-function cards () {
+function cards (data) {
     let cards = data.map((producto) => `<div class="card" style="width: 18rem;">
-            <img src="${prodEncontrado.image}" class="card-img-top" alt="imagen ${prodEncontrado.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
+            <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
             <div class="card-body">
-                <h5 class="card-title">${prodEncontrado.name}</h5>
-                <p class="card-text">${prodEncontrado.description}</p>
-                <p class="card-text">$${prodEncontrado.price}</p>
-                <p class="card-text">Stock: ${prodEncontrado.stock}</p>
-                <a href="./producto.html?prod=${prodEncontrado.id}">
+                <h5 class="card-title">${producto.name}</h5>
+                <p class="card-text">${producto.description}</p>
+                <p class="card-text">$${producto.price}</p>
+                <p class="card-text">Stock: ${producto.stock}</p>
+                <a href="./producto.html?prod=${producto.id}">
                     <button class="btn">Ver más</button>
                 </a>
             </div>
         </div>`)
+        document.querySelector('.container').innerHTML = cards.join("");
 }
-document.querySelector('.container').innerHTML = array.join("");
 
-cards ();
+
+cards (data);
 
 function buscadorf() {
 let inputbuscador = document.querySelector(".input");
 
 let filterdata = data.filter((producto ) => producto.name == inputbuscador.value);
 let cards = filterData.map((producto) => `<div class="card" style="width: 18rem;">
-            <img src="${prodEncontrado.image}" class="card-img-top" alt="imagen ${prodEncontrado.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
+            <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
             <div class="card-body">
-                <h5 class="card-title">${prodEncontrado.name}</h5>
-                <p class="card-text">${prodEncontrado.description}</p>
-                <p class="card-text">$${prodEncontrado.price}</p>
-                <p class="card-text">Stock: ${prodEncontrado.stock}</p>
-                <a href="./producto.html?prod=${prodEncontrado.id}">
+                <h5 class="card-title">${producto.name}</h5>
+                <p class="card-text">${producto.description}</p>
+                <p class="card-text">$${producto.price}</p>
+                <p class="card-text">Stock: ${producto.stock}</p>
+                <a href="./producto.html?prod=${producto.id}">
                     <button class="btn">Ver más</button>
                 </a>
             </div>
@@ -78,13 +79,13 @@ function botones(category) {
     let busqueda = dataFiltered.map((producto) => {
       if(producto.category === category){
        return  `<div class="card" style="width: 18rem;">
-       <img src="${prodEncontrado.image}" class="card-img-top" alt="imagen ${prodEncontrado.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
+       <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
        <div class="card-body">
-           <h5 class="card-title">${prodEncontrado.name}</h5>
-           <p class="card-text">${prodEncontrado.description}</p>
-           <p class="card-text">$${prodEncontrado.price}</p>
-           <p class="card-text">Stock: ${prodEncontrado.stock}</p>
-           <a href="./producto.html?prod=${prodEncontrado.id}">
+           <h5 class="card-title">${producto.name}</h5>
+           <p class="card-text">${producto.description}</p>
+           <p class="card-text">$${producto.price}</p>
+           <p class="card-text">Stock: ${producto.stock}</p>
+           <a href="./producto.html?prod=${producto.id}">
                <button class="btn">Ver más</button>
            </a>
        </div>

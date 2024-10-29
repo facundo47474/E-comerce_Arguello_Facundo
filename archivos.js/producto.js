@@ -12,7 +12,7 @@ let id = parseInt(window.location.search.split("=")[1])
     let prod = new Producto("Mustang", "muy caro", 1, 100000000, "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg")
 
     let cards = [
-        { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'https://example.com/mustang.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
+        { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'https://cdn.motor1.com/images/mgl/6ZpqJk/s1/ford-mustang-electric-by-charge-cars.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
         { id: 2, "name": 'Chevrolet Camaro', "description": 'Potente y ágil, un verdadero deportivo.', "image": 'https://example.com/camaro.jpg', "price": "20.000.000", "stock": "3", "category": 'Nuevo' },
         { id: 3, "name": 'Dodge Charger', "description": 'Elegancia y potencia en un solo paquete.', "image": 'https://example.com/charger.jpg', "price": "33.000.000", "stock": "3", "category": 'Nuevo' },
         { id: 4, "name": 'Toyota Corolla', "description": 'Fiabilidad y economía de combustible.', "image": 'https://example.com/corolla.jpg', "price": "222.000", "stock": "3", "category": 'Nuevo' },
