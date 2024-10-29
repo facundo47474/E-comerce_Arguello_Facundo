@@ -1,49 +1,62 @@
-let categorias = ["autos", "motos", "bicicletas"]; 
-let array = [];
-let menu = `<nav class="navbar navbar-expand-lg bg-body-tertiary">
-<div class="container-fluid">
-  <a class="navbar-brand" href="#"><img src="https://thumbs.dreamstime.com/z/e-commerce-logo-design-template-white-background-e-commerce-logo-design-template-212252837.jpg" alt="" width="80px"></a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">buscar</button>
-    </form>
-  </div>
-</div>
-<div class = "autos">
-</div>
-</nav>`
+// Crear el navbar
+const navbar = document.createElement('nav');
+navbar.style.backgroundColor = '#333';
+navbar.style.color = '#fff';
+navbar.style.padding = '10px';
+navbar.style.display = 'flex';
+navbar.style.justifyContent = 'space-between';
+navbar.style.alignItems = 'center';
+navbar.style.position = 'fixed';
+navbar.style.top = '0';
+navbar.style.width = '100%';
+navbar.style.zIndex = '1000';
+navbar.style.transition = 'background-color 0.3s ease';
 
-document.querySelector("header").innerHTML = menu;
+// Título del navbar
+const title = document.createElement('div');
+title.innerText = 'Venta de Autos';
+title.style.fontSize = '24px';
+title.style.fontWeight = 'bold';
+navbar.appendChild(title);
 
-for(let i = 0 ; i < categorias.length; i++) {
-  const categoria = `<a href="#" class="btn btn-primary">${categorias[i]}</a>`;
-  array.push(categorias);
-}
-document.querySelector("autos").innerHTML = array.join("");
+// Crear el contenedor para los enlaces
+const navLinksContainer = document.createElement('div');
+navLinksContainer.style.display = 'flex';
 
+// Lista de enlaces del navbar
+const links = ['Inicio', 'Autos Nuevos', 'Autos Usados', 'Autos Clásicos', 'Contacto'];
+
+links.forEach(link => {
+    const navLink = document.createElement('a');
+    navLink.innerText = link;
+    navLink.href = '#'; // Cambia esto a la ruta correspondiente
+    navLink.style.margin = '0 15px';
+    navLink.style.color = '#fff';
+    navLink.style.textDecoration = 'none';
+    navLink.style.transition = 'color 0.3s ease';
+
+    // Animaciones al pasar el mouse
+    navLink.addEventListener('mouseenter', () => {
+        navLink.style.color = '#FFD700'; // Cambia el color al pasar el mouse
+    });
+    navLink.addEventListener('mouseleave', () => {
+        navLink.style.color = '#fff'; // Color original
+    });
+
+    navLinksContainer.appendChild(navLink);
+});
+
+// Añadir contenedor de enlaces al navbar
+navbar.appendChild(navLinksContainer);
+
+// Añadir navbar al body
+document.body.appendChild(navbar);
+
+// Cambiar el color del navbar al hacer scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = '#222'; // Color más oscuro al hacer scroll
+    } else {
+        navbar.style.backgroundColor = '#333'; // Color original
+    }
+});
