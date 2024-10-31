@@ -1,103 +1,119 @@
+/* Navbar CSS */ 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1b1b1b;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  transition: background-color 0.4s ease;
+}
+
+.navbar:hover {
+  background-color: #222;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #b3a369;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las cards en el contenedor */
+  gap: 30px; /* Espaciado entre cards */
+  padding: 100px 20px 20px; /* Espaciado alrededor del contenedor */
+}
+
 .card {
-    background: #2c2c2c; /* Fondo oscuro para las cards */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
-    overflow: hidden; /* Esconde el desbordamiento */
-    position: relative; /* Posicionamiento relativo para el efecto LED */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación de transformación */
-    margin: 20px; /* Margen */
-    padding: 20px; /* Espaciado interno */
+  background-color: #333;
+  border-radius: 10px;
+  width: 300px; /* Ancho fijo para las cards */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido esté en una columna */
+  cursor: pointer; /* Cambia el cursor para indicar que se puede hacer clic */
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Levanta la card al pasar el mouse */
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6); /* Aumenta la sombra al hacer hover */
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Efecto LED en los costados */
-.card::before,
-.card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 10px; /* Ancho de las luces LED */
-    height: 100%;
-    border-radius: 15px; /* Bordes redondeados para las luces */
-    transition: background 0.3s ease; /* Animación del fondo */
+.card img {
+  width: 100%;
+  height: 200px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  transition: transform 0.5s ease;
 }
 
-.card::before {
-    left: -10px; /* Alinea a la izquierda */
-    background: linear-gradient(to bottom, #ff0080, #ff8c00); /* Gradiente de color */
+.card:hover img {
+  transform: scale(1.05);
 }
 
-.card::after {
-    right: -10px; /* Alinea a la derecha */
-    background: linear-gradient(to bottom, #00bfff, #ff0080); /* Gradiente de color */
-}
-
-/* Animación de parpadeo de las luces LED */
-@keyframes ledBlink {
-    0%, 100% {
-        opacity: 0.6;
-    }
-    50% {
-        opacity: 1;
-    }
-}
-
-.card:hover::before,
-.card:hover::after {
-    animation: ledBlink 1s infinite; /* Activar animación al pasar el mouse */
-}
-
-/* Estilo del contenido dentro de la card */
 .card-content {
-    color: #fff; /* Color del texto */
-    text-align: center; /* Centrar texto */
+  padding: 20px;
 }
 
 .card-title {
-    font-size: 1.5em; /* Tamaño del título */
-    margin-bottom: 10px; /* Espaciado debajo del título */
+  font-size: 22px;
+  font-weight: bold;
+  color: #b3a369;
+  margin: 0 0 10px;
 }
 
 .card-description {
-    font-size: 1em; /* Tamaño de la descripción */
-    margin-bottom: 15px; /* Espaciado debajo de la descripción */
+  font-size: 16px;
+  color: #ddd;
+  margin: 0 0 20px;
 }
 
-.card-button {
-    background-color: #ff0080; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados para el botón */
-    padding: 10px 20px; /* Espaciado interno del botón */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s ease; /* Animación de color de fondo */
+.ver-mas-btn {
+  padding: 10px 20px;
+  background-color: #b3a369;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.card-button:hover {
-    background-color: #ff8c00; /* Cambia el color al hacer hover */
-}
-
-
-.search-container {
-    margin: 20px; /* Espaciado alrededor del contenedor de búsqueda */
-    display: flex; /* Usa flexbox para alinear elementos */
-    justify-content: center; /* Centrar horizontalmente */
-}
-
-#searchInput {
-    padding: 10px; /* Espaciado interno */
-    border: 2px solid #ff0080; /* Color de borde */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 1em; /* Tamaño de la fuente */
-    width: 300px; /* Ancho del campo de entrada */
-    transition: border-color 0.3s ease; /* Animación para el color del borde */
-}
-
-#searchInput:focus {
-    border-color: #00bfff; /* Cambia el color del borde al hacer foco */
-    outline: none; /* Quitar el contorno por defecto */
+.ver-mas-btn:hover {
+  background-color: #d4b473;
+  transform: translateY(-3px) scale(1.05);
 }
