@@ -117,3 +117,8 @@ body {
   background-color: #d4b473;
   transform: translateY(-3px) scale(1.05);
 }
+
+.filtro{
+  display:none;
+}
+

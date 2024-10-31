@@ -1,8 +1,7 @@
-let h1 = document.querySelector("h1").innerHTML = "productos"; 
-
+let h1 = document.querySelector("h1").innerHTML = "productos";
 
 let data = [
-    { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'Un clásico muscle car americano.', "image": 'https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2019/12/10090509/DSC05783_2-1-1160x741.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
+    { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2019/12/10090509/DSC05783_2-1-1160x741.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
     { id: 2, "name": 'Chevrolet Camaro', "description": 'Potente y ágil, un verdadero deportivo.', "image": 'https://maipuchevrolet.com.ar/wp-content/uploads/sites/4/2021/03/camaro-conversivel-2018-vermelho-gal-04-v1.jpg', "price": "20.000.000", "stock": "3", "category": 'Nuevo' },
     { id: 3, "name": 'Dodge Charger', "description": 'Elegancia y potencia en un solo paquete.', "image": 'https://acnews.blob.core.windows.net/imgnews/large/NAZ_3512e641b7bd42e0b6d59adffa9142f2.jpg', "price": "33.000.000", "stock": "3", "category": 'Nuevo' },
     { id: 4, "name": 'Toyota Corolla', "description": 'Fiabilidad y economía de combustible.', "image": 'https://fotos.perfil.com/2022/06/03/toyota-corolla-1366408.jpg', "price": "222.000", "stock": "3", "category": 'Nuevo' },
@@ -15,16 +14,17 @@ let data = [
     { id: 11,"name": 'Volkswagen Beetle', "description": 'Un clásico que nunca pasa de moda.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRddP70PkxcRbj3-MNCmkp7mKc-Su-SEdmtog&s', "price": "23.000.000", "stock": "3", "category": 'Usado' },
     { id: 12,"name": 'Ford Bronco', "description": 'Un clásico todoterreno renovado.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOIgoKNBENvFU_id-z4IDiJSKKclP1FJU8xA&s', "price": "23.000.000", "stock": "3", "category": 'Usado' },
     { id: 13,"name": 'Chevrolet Impala', "description": 'Un sedán espacioso y cómodo.', "image": 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/2014_Chevrolet_Impala_LTZ_3.6L_with_courtesy_plates%2C_front_6.1.19.jpg/1200px-2014_Chevrolet_Impala_LTZ_3.6L_with_courtesy_plates%2C_front_6.1.19.jpg', "price": "23.000.000", "stock": "3", "category": 'Usado' },
-    { id: 14,"name": 'Datsun 240Z', "description2": 'Un clásico japonés que encanta a los coleccionistas.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUwsaAMdtH2iy_NWNe_3G8yNgkMzdGrIaP9A&s', "price": "34.000.000", "stock": "3", "category": 'Clásico' },
+    { id: 14,"name": 'Datsun 240Z', "description": 'Un clásico japonés que encanta a los coleccionistas.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUwsaAMdtH2iy_NWNe_3G8yNgkMzdGrIaP9A&s', "price": "34.000.000", "stock": "3", "category": 'Clásico' },
     { id: 15,"name": 'Morris Mini', "description": 'Pequeño y encantador, un ícono británico.', "image": 'https://thumbs.dreamstime.com/b/mark-ii-rover-mini-cooper-montmelo-de-noviembre-aka-morris-o-austin-168293081.jpg', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
     { id: 16,"name": 'Ford Model T', "description": 'El automóvil que revolucionó el transporte.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhYrf9OwbeeTj98qeR2UpwXpm4UFtuNEEEN9-j-LWhKDvsGL7ZyaTEzeFrZlsOiHHN-sk&usqp=CAU', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
     { id: 17,"name": 'Chevrolet Bel Air', "description": 'Un clásico de los años 50 con estilo.', "image": 'https://www.chevrolet.com.ar/content/dam/chevrolet/sa/argentina/espanol/index/cars/cars-subcontent/04-images/chevrolet-autos-nuevo-onix-v1.png?imwidth=960', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
     { id: 18,"name": 'Jaguar E-Type', "description": 'Un ícono del diseño automovilístico.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZBElEsgbOnSU4FfOAaPeivEzBKgh2cC41Jg&s', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
 ];
 
-
-function cards (data) {
-    let cards = data.map((producto) => `<div class="card" style="width: 18rem;">
+// Función para renderizar las cards
+function renderCards(data) {
+    let cards = data.map((producto) => `
+        <div class="card" style="width: 18rem;">
             <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
             <div class="card-body">
                 <h5 class="card-title">${producto.name}</h5>
@@ -35,63 +35,19 @@ function cards (data) {
                     <button class="btn">Ver más</button>
                 </a>
             </div>
-        </div>`)
-        document.querySelector('.container').innerHTML = cards.join("");
+        </div>
+    `);
+    document.querySelector('.container').innerHTML = cards.join("");
 }
 
+// Renderiza las cards inicialmente
+renderCards(data);
 
-cards (data);
-
-function buscadorf() {
-let inputbuscador = document.querySelector(".input");
-
-let filterdata = data.filter((producto ) => producto.name == inputbuscador.value);
-let cards = filterData.map((producto) => `<div class="card" style="width: 18rem;">
-            <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
-            <div class="card-body">
-                <h5 class="card-title">${producto.name}</h5>
-                <p class="card-text">${producto.description}</p>
-                <p class="card-text">$${producto.price}</p>
-                <p class="card-text">Stock: ${producto.stock}</p>
-                <a href="/producto.html?prod=${producto.id}">
-                    <button class="btn">Ver más</button>
-                </a>
-            </div>
-        </div>`
-    
-    )
-    document.querySelector('.container').innerHTML = buscadorf.join("");
-};
-
-
-let botonBuscador = document.querySelector(".boton");  
-botonBuscador.addEventListener("click", buscadorf);
-
-let botonesCateg = document.querySelectorAll(".category");
-for (const botonData of botonesCateg) {
-  botonData.addEventListener("click", () => {
-    botones(botonData.innerText);
-  })
-}
-
-function botones(category) {
-    let dataFiltered = data.filter((producto) => producto.category == category);
-    let busqueda = dataFiltered.map((producto) => {
-      if(producto.category === category){
-       return  `<div class="card" style="width: 18rem;">
-       <img src="${producto.image}" class="card-img-top" alt="imagen ${producto.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
-       <div class="card-body">
-           <h5 class="card-title">${producto.name}</h5>
-           <p class="card-text">${producto.description}</p>
-           <p class="card-text">$${producto.price}</p>
-           <p class="card-text">Stock: ${producto.stock}</p>
-           <a href="/producto.html?prod=${producto.id}">
-               <button class="btn">Ver más</button>
-           </a>
-       </div>
-   </div>`
-}
-
-    })
-    document.querySelector(".container").innerHTML = botonBuscador.join("");
-};
+// Agrega el event listener al buscador
+document.getElementById("buscador").addEventListener("keyup", function() {
+    let search = this.value.toLowerCase();
+    let filterData = data.filter(producto =>
+        producto.name.toLowerCase().includes(search)
+    );
+    renderCards(filterData);
+});
