@@ -34,7 +34,7 @@ let id = parseInt(window.location.search.split("=")[1])
 
     let prodEncontrado = cards.find((producto) => producto.id === id);
 
-        const card1 = `<div class="card" style="width: 18rem;">
+        const card1 = <div class="card" style="width: 18rem;">
             <img src="${prodEncontrado.image}" class="card-img-top" alt="imagen ${prodEncontrado.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
             <div class="card-body">
                 <h5 class="card-title">${prodEncontrado.name}</h5>
@@ -42,11 +42,22 @@ let id = parseInt(window.location.search.split("=")[1])
                 <p class="card-text">$${prodEncontrado.price}</p>
                 <p class="card-text">Stock: ${prodEncontrado.stock}</p>
                 <a href="./producto.html?prod=${prodEncontrado.id}">
-                    <button class="btn">comprar</button>
+                    <button class="btn">agregr al carrito</button>
+                   $localStorage.getItem("sessión") ?
          
                 </a>
             </div>
-        </div>`;
+        </div>;
     
+    `
+      <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="restButton()">-</button>
+            <input class="form-control text-center shadow-none" id="number-counter" value="1" type="text"/>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addButton()">+</button>
+          </div>
+          <button type="button" class="btn btn-dark" onclick="addProductToCart()">Añadir al carrito</button>`
+           
+        `<a href="./login.html"><button class="btn btn-outline-success">Para comprar, debes iniciar sesión</button></a>`
 
-       document.querySelector(".container").innerHTML = card1;
+
+

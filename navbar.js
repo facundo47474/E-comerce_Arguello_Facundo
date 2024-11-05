@@ -10,9 +10,17 @@ navbarContainer.innerHTML = `
         <a href="#autos">Autos</a>
         <a href="#ofertas">Ofertas</a>
         <a href="#contacto">Contacto</a>
+        <a href="./index.html">X</a>
     </div>
-    <button class="search-button">Buscar</button>
+    <div>
+     ${localStorage.getItem("session")?`<button class="btn btn-outline-success" onclick = "closeSession()">Cerrar sesión</button>`: `<a href="./login.html"><button class="btn btn-outline-success"> Iniciar sesión</button></a>`}
+     </div>
 `;
 
 // Inserta el navbar en el documento
 document.body.insertBefore(navbarContainer, document.body.firstChild);
+
+function closeSession(){
+    localStorage.clear();
+    location.href = "./index.html";
+}
