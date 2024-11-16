@@ -1,3 +1,4 @@
+
 let h1 = document.querySelector("h1").innerHTML = "productos";
 
 let data = [
@@ -20,8 +21,14 @@ let data = [
     { id: 17,"name": 'Chevrolet Bel Air', "description": 'Un clásico de los años 50 con estilo.', "image": 'https://www.chevrolet.com.ar/content/dam/chevrolet/sa/argentina/espanol/index/cars/cars-subcontent/04-images/chevrolet-autos-nuevo-onix-v1.png?imwidth=960', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
     { id: 18,"name": 'Jaguar E-Type', "description": 'Un ícono del diseño automovilístico.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZBElEsgbOnSU4FfOAaPeivEzBKgh2cC41Jg&s', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
 ];
+document.querySelector(".container").innerHTML = "Cargando"
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+    resolve(renderCards(data))
+    },3000)
+})
 
-// Función para renderizar las cards
+
 function renderCards(data) {
     let cards = data.map((producto) => `
         <div class="card" style="width: 18rem;">
@@ -40,10 +47,10 @@ function renderCards(data) {
     document.querySelector('.container').innerHTML = cards.join("");
 }
 
-// Renderiza las cards inicialmente
-renderCards(data);
 
-// Agrega el event listener al buscador
+
+
+
 document.getElementById("buscador").addEventListener("keyup", function() {
     let search = this.value.toLowerCase();
     let filterData = data.filter(producto =>
@@ -51,3 +58,4 @@ document.getElementById("buscador").addEventListener("keyup", function() {
     );
     renderCards(filterData);
 });
+

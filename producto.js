@@ -34,20 +34,60 @@ let id = parseInt(window.location.search.split("=")[1])
 
     let prodEncontrado = cards.find((producto) => producto.id === id);
 
-        const card1 = `<div class="card" style="width: 18rem;">
+        const card1 = `<div class="card2" style="width: 18rem;">
             <img src="${prodEncontrado.image}" class="card-img-top" alt="imagen ${prodEncontrado.id}" style="object-fit: contain; width: 100%; height: 150px;"/>
-            <div class="card-body">
-                <h5 class="card-title">${prodEncontrado.name}</h5>
-                <p class="card-text">${prodEncontrado.description}</p>
-                <p class="card-text">$${prodEncontrado.price}</p>
-                <p class="card-text">Stock: ${prodEncontrado.stock}</p>
-                <a href="./producto.html?prod=${prodEncontrado.id}">
-                    <button class="btn">agregr al carrito</button>
-                   $localStorage.getItem("sessión") ?
-         
-                </a>
+            <div class="card-body1">
+                <h5 class="card-title1">${prodEncontrado.name}</h5>
+                <p class="card-text1">${prodEncontrado.description}</p>
+                <p class="card-text1">$${prodEncontrado.price}</p>
+                <p class="card-text1">Stock: ${prodEncontrado.stock}</p>
+                ${localStorage.getItem("session")?
+                `
+                <div class="input-group mb-3">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="restButton()">-</button>
+                      <input class="form-control text-center shadow-none" id="number-counter" value="1" type="text"/>
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addButton()">+</button>
+                    </div>
+                    <button type="button" class="btn btn-dark" onclick="addProductToCart()">Añadir al carrito</button>`
+                     
+                 : `<a href="./login.html"><button class="btn btn-outline-success">Para comprar, debes iniciar sesión</button></a>`}
             </div>
-        </div> `;
-        document.querySelector(".container").innerHTML = card1
-    
-  
+          </div>`;
+
+let cart = JSON.parse(localStorage.getItem("cart"));
+if(!cart){ 
+  cart = [];
+}
+document.querySelector(".container").innerHTML = card1;
+let input = document.querySelector("#producto main input");
+function addButton() {
+
+  if(input.value < prodEncontrado.stock) {
+    input.value = String(Number(input.value) + 1); 
+  } else {
+    alert("fuera de stock!");
+  }
+}
+
+ function restButton() {
+  if (input.value > 1) {
+    input.value -= 1;
+  }
+}
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+function addProductToCart() {
+if(cart.length === 0) {
+  if(input.value > prodEncontrado.stock) {
+    alert("No hay suficiente stock");
+  } else {
+    cart.push({prod:prodEncontrado, quantity: input.value})
+  }
+} 
+cart.findIndex((card1) => card1.prod.id == prodEncontrado.id);
+const foundItem = cart[existingItemIndex];
+}
+
+const existingItemIndex = cart.findindex() 
+const foundItem = cart[existingItemIndex];

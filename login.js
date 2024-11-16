@@ -9,6 +9,8 @@ uForm.addEventListener("submit", (e) => {
     let nPassword = formData.get("password");
     if (uEmail === nEmail && uPassword === nPassword) {
         localStorage.setItem("session", nEmail);
+        localStorage.setItem("cart", JSON.stringify([]))
+        localStorage.setItem("quantity", "0")
         window.location.href = "../index.html";
     } else {
         alert("Email o Password incorrectos");
