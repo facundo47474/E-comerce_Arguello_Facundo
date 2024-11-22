@@ -1,4 +1,4 @@
-/* Navbar CSS */ 
+/* General Body Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,6 +6,7 @@ body {
   color: #fff;
 }
 
+/* Navbar General Styles */
 .navbar {
   display: flex;
   align-items: center;
@@ -20,21 +21,32 @@ body {
   transition: background-color 0.4s ease;
 }
 
-.navbar:hover {
-  background-color: #222;
-}
-
+/* Logo Styles */
 .navbar-logo {
   font-size: 24px;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.navbar-logo span {
+  color: #b3a369;
+}
+
+.navbar-logo:hover {
+  color: #b3a369;
+  transform: scale(1.1);
+}
+
+/* Navbar Menu Styles */
 .navbar-menu {
   display: flex;
+  align-items: center;
   gap: 20px;
+  position: relative;
 }
 
 .navbar-menu a {
@@ -42,81 +54,250 @@ body {
   text-decoration: none;
   font-size: 18px;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar-menu a:hover {
   color: #b3a369;
+  transform: scale(1.1);
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centra las cards en el contenedor */
-  gap: 30px; /* Espaciado entre cards */
-  padding: 100px 20px 20px; /* Espaciado alrededor del contenedor */
-}
-
-.card {
-  background-color: #333;
-  border-radius: 10px;
-  width: 300px; /* Ancho fijo para las cards */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column; /* Asegura que el contenido esté en una columna */
-  cursor: pointer; /* Cambia el cursor para indicar que se puede hacer clic */
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-}
-
-.card img {
-  width: 100%;
-  height: 200px; /* Altura fija para las imágenes */
-  object-fit: cover; /* Ajusta la imagen sin deformarla */
-  transition: transform 0.5s ease;
-}
-
-.card:hover img {
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #b3a369;
-  margin: 0 0 10px;
-}
-
-.card-description {
-  font-size: 16px;
-  color: #ddd;
-  margin: 0 0 20px;
-}
-
-.ver-mas-btn {
-  padding: 10px 20px;
-  background-color: #b3a369;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
+/* Menú desplegable de "Categorias" */
+.navbar-menu .categorias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #444;
   border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
-.ver-mas-btn:hover {
-  background-color: #d4b473;
-  transform: translateY(-3px) scale(1.05);
+.categorias li {
+  width: 150px;
 }
+
+.categorias li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.categorias li a:hover {
+  background-color: #555;
+  color: #b3a369;
+}
+
+/* Mostrar menú desplegable solo al pasar el mouse sobre "Autos" */
+.autos-link:hover + .categorias,
+.categorias:hover {
+  display: block;
+}
+
+/* Menú desplegable de "Contacto" */
+.navbar-menu .contacto-link {
+  position: relative;
+}
+
+.navbar-menu .contacto-categorias {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  padding: 10px;
+  list-style: none;
+  margin-top: 5px;
+  border-radius: 5px;
+  z-index: 10;
+  left: 0;
+  width: max-content;
+}
+
+.navbar-menu .contacto-link:hover + .contacto-categorias,
+.contacto-categorias:hover {
+  display: block;
+}
+
+.navbar-menu .contacto-categorias li {
+  padding: 5px;
+}
+
+.navbar-menu .contacto-categorias li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-menu .contacto-categorias li a:hover {
+  background-color: #555;
+  color: #b3a369;
+}
+
+/* Navbar Cart Styles */
+.navbar-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar-cart img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+.navbar-cart img:hover {
+  transform: scale(1.2);
+}
+
+#cart-counter {
+  font-size: 14px;
+  background-color: #b3a369;
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Botones */
+.btn {
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-success {
+  border-color: #b3a369;
+  color: #b3a369;
+}
+
+.btn-outline-success:hover {
+  background-color: #b3a369;
+  color: #222;
+}
+
+/* Estilos para la barra de carrito */
+.navbar-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Imagen del carrito */
+.navbar-cart img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+/* Cuando el ratón pasa por el carrito */
+.navbar-cart img:hover {
+  transform: scale(1.2);
+}
+
+/* Contador del carrito */
+#cart-counter {
+  font-size: 14px;
+  background-color: #b3a369;
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Estilos para el botón de borrar carrito */
+.clear-cart-btn {
+  background-color: #b3a369;
+  border: none;
+  color: #fff;
+  padding: 6px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #a08d3a;
+}
+
+
+
+
+
+
+
+
+/* Estilo general para las cards */
+.card {
+  background-color: #f9f9f9; /* Fondo suave, similar al color de una tarjeta */
+  border: 1px solid #ddd; /* Borde ligero */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
+  transition: all 0.3s ease-in-out; /* Transición suave para efectos */
+}
+
+/* Al pasar el mouse sobre la card */
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el mouse */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilo específico para las cards en el carrito */
+.cart-card {
+  background-color: #f0f0f0; /* Fondo gris suave para el carrito */
+  border: 1px solid #ccc; /* Borde más oscuro */
+  padding: 20px;
+  margin-bottom: 15px; /* Espacio entre las cards */
+}
+
+/* Agregar un fondo a las cards del carrito */
+.cart-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Texto de las cards */
+.cart-card .card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333; /* Texto oscuro */
+}
+
+/* Precio en el carrito */
+.cart-card .price {
+  font-size: 1.4em;
+  color: #e74c3c; /* Color rojo para el precio */
+  font-weight: bold;
+}
+
+/* Botón de eliminar o modificar en el carrito */
+.cart-card .btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-card .btn:hover {
+  background-color: #2980b9; /* Cambio de color al pasar el mouse */
+}
+
+
+
 
 .filtro{
   display:none;
@@ -169,6 +350,204 @@ body {
     height: 32px;
   }
 }
+}
 
 
+/* Estilo general del collage */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  gap: 20px; /* Espaciado entre imágenes */
+  width: 100%; /* Ocupa todo el ancho */
+  max-height: 400px; /* Controla el alto */
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px; /* Espacio debajo del navbar */
+  border-radius: 15px; /* Bordes redondeados para las esquinas */
+}
+
+/* Estilo de cada imagen en el collage */
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Transiciones más suaves */
+}
+
+/* Efecto zoom y sombra al pasar el mouse */
+.collage-item img:hover {
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Aumenta la sombra */
+}
+
+/* Banner de novedad */
+.novedad-banner {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: rgba(255, 0, 0, 0.8); /* Fondo rojo para llamar la atención */
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para hacer que el banner resalte */
+  animation: fadeIn 1.5s ease-in-out; /* Animación para hacer que aparezca suavemente */
+}
+
+/* Animación de desvanecimiento del banner */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .collage {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    margin-top: 10px;
+  }
+
+  .novedad-banner {
+    font-size: 22px;
+    padding: 10px 20px;
+  }
+}
+
+
+
+
+
+
+
+
+/* Contenedor para el buscador centrado */
+.search-container {
+  display: flex;
+  justify-content: center; /* Centra el buscador horizontalmente */
+  align-items: center; /* Centra el buscador verticalmente */
+  margin-top: 100px; /* Aumenta el espacio entre el banner y el buscador */
+  position: relative;
+  z-index: 10;
+  height: auto; /* Ajusta la altura para el contenido */
+}
+
+/* Estilo del cuadro de entrada del buscador */
+.buscador {
+  width: 50%; /* Tamaño más pequeño del buscador */
+  padding: 12px 20px;
+  border-radius: 50px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco */
+  border: 2px solid #b3a369; /* Borde dorado */
+  font-size: 16px; /* Fuente más pequeña */
+  color: #333; /* Texto oscuro */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más ligera */
+  transition: all 0.3s ease; /* Transición suave */
+  outline: none;
+}
+
+/* Efecto al pasar el mouse sobre el cuadro de búsqueda */
+.buscador:hover,
+.buscador:focus {
+  border-color: #d4b473; /* Cambio de color de borde */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Aumento de sombra */
+  transform: scale(1.05); /* Efecto de zoom más sutil */
+}
+
+/* Estilo del texto del placeholder */
+.buscador::placeholder {
+  color: #888; /* Color sutil para el texto */
+  font-style: italic; /* Estilo de cursiva */
+}
+
+/* Estilos para el contenedor con imagen de fondo */
+.search-container {
+  background: url('https://i.pinimg.com/1200x/2c/1e/0e/2c1e0e17edcb355f6ba266dd226d0e98.jpg') no-repeat center center;
+  background-size: cover; /* Ajusta la imagen de fondo */
+  height: 600px; /* Ajusta la altura del contenedor */
+  border-radius: 15px; /* Bordes redondeados */
+  position: relative;
+  padding: 20px;
+  margin-top: 40px; /* Ajusta el margen superior para mayor separación */
+}
+
+/* Filtro oscuro en la imagen de fondo para resaltar el buscador */
+.search-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Filtro oscuro semitransparente */
+  border-radius: 15px;
+  z-index: -1;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .buscador {
+    width: 80%; /* Hace el buscador un poco más grande en pantallas pequeñas */
+  }
+}
+
+
+/* Spinner principal */
+.spinner {
+  border: 8px solid transparent;
+  border-top: 8px solid #3498db; /* Color brillante */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1.5s ease-in-out infinite, pulse 1s ease-in-out infinite;
+  position: relative;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.6); /* Sombra brillante */
+}
+
+/* Animación de rotación */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Efecto de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(52, 152, 219, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+  }
+}
+
+/* Estilos de un spinner más grande */
+.spinner-large {
+  width: 120px;
+  height: 120px;
+  border-width: 10px;
+}
+
+/* Estilos de un spinner más pequeño */
+.spinner-small {
+  width: 50px;
+  height: 50px;
+  border-width: 6px;
 }

@@ -1,5 +1,5 @@
 
-let h1 = document.querySelector("h1").innerHTML = "productos";
+let h1 = document.querySelector("h1").innerHTML = "";
 
 let data = [
     { id: 1, "name": 'Ford Mustang', "description": 'Un clásico muscle car americano.', "image": 'https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2019/12/10090509/DSC05783_2-1-1160x741.jpg', "price": "23.000.000", "stock": "5", "category": 'Nuevo' },
@@ -21,12 +21,20 @@ let data = [
     { id: 17,"name": 'Chevrolet Bel Air', "description": 'Un clásico de los años 50 con estilo.', "image": 'https://www.chevrolet.com.ar/content/dam/chevrolet/sa/argentina/espanol/index/cars/cars-subcontent/04-images/chevrolet-autos-nuevo-onix-v1.png?imwidth=960', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
     { id: 18,"name": 'Jaguar E-Type', "description": 'Un ícono del diseño automovilístico.', "image": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZBElEsgbOnSU4FfOAaPeivEzBKgh2cC41Jg&s', "price": "23.000.000", "stock": "3", "category": 'Clásico' },
 ];
-document.querySelector(".container").innerHTML = "Cargando"
+// Mostrar el spinner mientras se carga
+document.querySelector(".container").innerHTML = `
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+`;
+
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-    resolve(renderCards(data))
-    },3000)
-})
+        resolve(renderCards(data)); // Cuando se resuelve, se llaman las tarjetas
+    }, 3000);
+});
+
+
+
 
 
 function renderCards(data) {
