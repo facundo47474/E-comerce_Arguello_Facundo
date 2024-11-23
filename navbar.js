@@ -52,8 +52,10 @@ document.querySelectorAll(".carrito").forEach(element => {
 
 document.querySelector(".clear-cart-btn").addEventListener("click", () => {
   localStorage.removeItem("cart"); // Borra el carrito del localStorage
+  document.querySelector(".compras").innerHTML = "";
   document.getElementById("cart-counter").textContent = "0"; // Actualiza el contador del carrito
 });
+
 
 // Función para cerrar sesión
 function closeSession() {

@@ -75,52 +75,54 @@ function addButton() {
 }
 
 
-
 function addProductToCart() {
-  console.log(cart)
-if(cart.length === 0) {
-  if(parseInt(input.value) > prodEncontrado.stock) {
-    alert("No hay suficiente stock");
-  } else {
-    cart.push({prod:prodEncontrado, quantity: parseInt(input.value)})
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location = window.location
-    return
+  console.log(cart);
+
+  if (cart.length === 0) {
+    if (parseInt(input.value) > prodEncontrado.stock) {
+      alert("No hay suficiente stock");
+    } else {
+      cart.push({ prod: prodEncontrado, quantity: parseInt(input.value) });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      // Actualizar contador del carrito sin recargar la página
+      updateCartCounter();
+      showToast("Producto agregado!");
+      return;
+    }
   }
-} 
 
-let existingItemIndex = cart.findIndex((card1) => card1.prod.id == prodEncontrado.id);
-const foundItem = cart[existingItemIndex];
-if (!foundItem) {
-  cart.push({prod:prodEncontrado, quantity: parseInt(input.value)})
+  let existingItemIndex = cart.findIndex((card1) => card1.prod.id == prodEncontrado.id);
+  const foundItem = cart[existingItemIndex];
+
+  if (!foundItem) {
+    cart.push({ prod: prodEncontrado, quantity: parseInt(input.value) });
     localStorage.setItem("cart", JSON.stringify(cart));
-    window.location = window.location
-    return
-}
-if ((foundItem.quantity + parseInt(input.value)) > prodEncontrado.stock) {
-  alert("sin stock!");
-  return
-} 
-foundItem.quantity += parseInt(input.value);
-localStorage.setItem("cart", JSON.stringify(cart));
-Toastify({
+    updateCartCounter();
+    showToast("Producto agregado!");
+    return;
+  }
 
-  text: "Producto agregado!",
-  
-  duration: 3000
-  
-  }).showToast()  
-  window.location = window.location 
-} 
-function iniciarSession() {
-    const usuarioAutenticado = true;
+  if ((foundItem.quantity + parseInt(input.value)) > prodEncontrado.stock) {
+    alert("Sin stock!");
+    return;
+  }
 
-if(usuarioAutenticado){
-    localStorage.removeItem("cart");
-    alert("carrito eliminado");
-    window.location.reload();
+  foundItem.quantity += parseInt(input.value);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCounter();
+  showToast("Producto agregado!");
 }
-else {
-    alert("Error al iniciar sesión. Verifica tus datos.");
+
+// Función para mostrar el toast
+function showToast(message) {
+  Toastify({
+    text: message,
+    duration: 3000
+  }).showToast();
 }
+
+// Función para actualizar el contador del carrito
+function updateCartCounter() {
+  const cartCounter = cart.reduce((total, item) => total + item.quantity, 0);
+  document.getElementById("cart-counter").textContent = cartCounter;
 }
