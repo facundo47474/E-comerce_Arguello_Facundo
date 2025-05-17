@@ -1,0 +1,1079 @@
+:root {
+    --primary: #000000;
+    --text: #333333;
+    --light: #ffffff;
+    --gray: #f5f5f5;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+}
+
+.menu-link:hover {
+    opacity: 0.7;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--light);
+    min-width: 600px;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.menu-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.submenu-col h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.submenu-col a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.submenu-col a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Search Bar */
+.search-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--light);
+    padding: 1rem;
+    transform: translateY(-100%);
+    transition: var(--transition);
+}
+
+.search-bar.active {
+    transform: translateY(0);
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    font-size: 1.1rem;
+    outline: none;
+}
+
+/* Hero Carousel */
+.hero-carousel {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: var(--light);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.slide-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: #333;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Products Showcase */
+.products-showcase {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+.products-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+}
+
+.products-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.filter-btn:hover::after,
+.filter-btn.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.filter-btn.active {
+    color: #000;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    position: relative;
+    height: 360px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-actions {
+    position: absolute;
+    top: 20px;
+    right: -60px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: right 0.3s ease;
+}
+
+.product-card:hover .product-actions {
+    right: 20px;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.action-btn:hover {
+    background: #000;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.product-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.product-badge.new {
+    background: #00c853;
+    color: #fff;
+}
+
+.product-badge.trending {
+    background: #2962ff;
+    color: #fff;
+}
+
+.product-details {
+    padding: 2rem;
+}
+
+.product-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.colors {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #e0e0e0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .products-showcase {
+        padding: 4rem 1rem;
+    }
+
+    .products-header h2 {
+        font-size: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .product-image {
+        height: 280px;
+    }
+
+    .product-details {
+        padding: 1.5rem;
+    }
+}
+/* ...existing styles... */
+
+/* Animaciones y efectos adicionales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.added-to-cart-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.added-to-cart-message.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Mejoras en hover effects */
+.product-card:hover .product-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.product-card .action-btn:hover {
+    transform: translateY(-2px) scale(1.1);
+}
+
+/* Responsive improvements */
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .filter-btn {
+        white-space: nowrap;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Instagram Feed Section */
+.instagram-section {
+    padding: 4rem 2rem;
+    background: #fff;
+}
+
+.instagram-profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.profile-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.profile-stats span {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.profile-stats b {
+    color: #000;
+    margin-right: 0.5rem;
+}
+
+.follow-btn {
+    margin-left: auto;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.follow-btn:hover {
+    transform: translateY(-2px);
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Quick Shop Modal */
+.quickshop-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.quickshop-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.quickshop-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.chat-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .instagram-section {
+        padding: 2rem 1rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .follow-btn {
+        margin: 1rem auto 0;
+    }
+
+    .profile-stats {
+        justify-content: center;
+    }
+
+    .feed-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Instagram Section */
+.instagram-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    position: relative;
+}
+
+.instagram-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.instagram-header h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(131, 58, 180, 0.2);
+}
+
+.follow-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(131, 58, 180, 0.3);
+}
+
+.follow-btn .material-icons {
+    font-size: 1.2rem;
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.instagram-post {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.instagram-post:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.instagram-post:hover img {
+    transform: scale(1.1);
+}
+
+.post-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.9) 0%,
+        rgba(0,0,0,0.5) 50%,
+        rgba(0,0,0,0.3) 100%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.instagram-post:hover .post-overlay {
+    opacity: 1;
+}
+
+.post-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.post-stats .material-icons {
+    font-size: 1.2rem;
+}
+
+.post-caption {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 500;
+    opacity: 0.9;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.instagram-post:hover .post-caption {
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+    .feed-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .instagram-section {
+        padding: 4rem 1rem;
+    }
+
+    .instagram-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .feed-grid {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .follow-btn {
+        padding: 0.8rem 2rem;
+    }
+
+    .post-overlay {
+        padding: 1.5rem;
+    }
+}
+/* Newsletter Section Styles */
+.newsletter {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #000000, #333333);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://source.unsplash.com/random/1920x1080?abstract') center/cover;
+    opacity: 0.1;
+}
+
+.newsletter-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+    color: #fd1d1d;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.benefits {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.benefits li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.benefits .material-icons {
+    color: #fd1d1d;
+}
+
+.input-group {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.newsletter-form input {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+    outline: none;
+}
+
+.subscribe-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    padding: 0 2rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.subscribe-btn:hover {
+    transform: translateX(3px);
+}
+
+.privacy-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.privacy-text a {
+    color: #fd1d1d;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .newsletter-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .newsletter-text h2 {
+        font-size: 2rem;
+    }
+
+    .benefits {
+        margin-top: 1rem;
+    }
+
+    .subscribe-btn {
+        padding: 0 1rem;
+    }
+}

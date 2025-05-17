@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Style | Tienda de Ropa</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Navbar Transparente -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">Proyecto de Facu</a>
+            
+            <div class="nav-menu">
+                <div class="menu-item has-submenu">
+                    <a href="#" class="menu-link">HOMBRE</a>
+                    <div class="submenu">
+                        <div class="submenu-grid">
+                            <div class="submenu-col">
+                                <h3>ROPA</h3>
+                                <a href="#">Remeras</a>
+                                <a href="#">Camisas</a>
+                                <a href="#">Jeans</a>
+                                <a href="#">Buzos</a>
+                                <a href="#">Camperas</a>
+                            </div>
+                            <div class="submenu-col">
+                                <h3>CALZADO</h3>
+                                <a href="#">Zapatillas</a>
+                                <a href="#">Botines</a>
+                                <a href="#">Botas</a>
+                            </div>
+                            <div class="submenu-col">
+                                <h3>ACCESORIOS</h3>
+                                <a href="#">Gorros</a>
+                                <a href="#">Mochilas</a>
+                                <a href="#">Cinturones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item has-submenu">
+                    <a href="#" class="menu-link">MUJER</a>
+                    <div class="submenu">
+                        <!-- Similar estructura que HOMBRE -->
+                    </div>
+                </div>
+
+                <a href="#" class="menu-link">SALE</a>
+                <a href="#" class="menu-link">NUEVO</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="search-toggle">
+                    <span class="material-icons">search</span>
+                </button>
+                <a href="/cart" class="cart-btn">
+                    <span class="material-icons">shopping_cart</span>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="/account" class="account-btn">
+                    <span class="material-icons">person</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Barra de búsqueda expandible -->
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar productos...">
+                <button class="search-close">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b" alt="Colección Verano">
+                    <div class="slide-content">
+                        <h2>Nueva Colección</h2>
+                        <p>Descubre las últimas tendencias</p>
+                        <a href="#" class="btn-primary">Ver más</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04" alt="Ofertas">
+                    <div class="slide-content">
+                        <h2>SALE</h2>
+                        <p>Hasta 50% OFF</p>
+                        <a href="#" class="btn-primary">Comprar ahora</a>
+                    </div>
+                </div>
+                <!-- Más slides aquí -->
+            </div>
+            
+            <button class="carousel-btn prev">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="carousel-btn next">
+                <span class="material-icons">chevron_right</span>
+            </button>
+            
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- El resto del contenido irá aquí -->
+
+
+
+
+
+
+
+    <section class="products-showcase">
+    <div class="products-header">
+        <h2>Colección Destacada</h2>
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">Todo</button>
+            <button class="filter-btn" data-filter="new">Nuevo</button>
+            <button class="filter-btn" data-filter="trending">Trending</button>
+            <button class="filter-btn" data-filter="bestsellers">Best Sellers</button>
+        </div>
+    </div>
+
+    <div class="products-grid">
+        <!-- Producto 1 -->
+        <article class="product-card" data-category="new trending">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27" alt="Sporty Hoodie">
+                <div class="product-actions">
+                    <button class="action-btn wishlist">
+                        <span class="material-icons">favorite_border</span>
+                    </button>
+                    <button class="action-btn quickview">
+                        <span class="material-icons">visibility</span>
+                    </button>
+                </div>
+                <div class="product-badge new">Nuevo</div>
+            </div>
+            <div class="product-details">
+                <h3>Sporty Hoodie Premium</h3>
+                <div class="product-meta">
+                    <span class="price">$45.000</span>
+                    <div class="colors">
+                        <span class="color-dot" style="background: #000000;"></span>
+                        <span class="color-dot" style="background: #C7C7C7;"></span>
+                        <span class="color-dot" style="background: #4A90E2;"></span>
+                    </div>
+                </div>
+                <button class="add-to-cart">
+                    <span class="material-icons">shopping_cart</span>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="product-card" data-category="bestsellers">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3" alt="Urban Sneakers">
+                <div class="product-actions">
+                    <button class="action-btn wishlist">
+                        <span class="material-icons">favorite_border</span>
+                    </button>
+                    <button class="action-btn quickview">
+                        <span class="material-icons">visibility</span>
+                    </button>
+                </div>
+                <div class="product-badge trending">Trending</div>
+            </div>
+            <div class="product-details">
+                <h3>Urban Sneakers Pro</h3>
+                <div class="product-meta">
+                    <span class="price">$65.000</span>
+                    <div class="colors">
+                        <span class="color-dot" style="background: #FFFFFF;"></span>
+                        <span class="color-dot" style="background: #FFD700;"></span>
+                        <span class="color-dot" style="background: #FF4444;"></span>
+                    </div>
+                </div>
+                <button class="add-to-cart">
+                    <span class="material-icons">shopping_cart</span>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+        </article>
+        <!-- ...existing products... -->
+
+<!-- Producto 3 -->
+<article class="product-card" data-category="trending">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a" alt="Cargo Pants Pro">
+        <div class="product-actions">
+            <button class="action-btn wishlist">
+                <span class="material-icons">favorite_border</span>
+            </button>
+            <button class="action-btn quickview">
+                <span class="material-icons">visibility</span>
+            </button>
+        </div>
+        <div class="product-badge trending">Trending</div>
+    </div>
+    <div class="product-details">
+        <h3>Cargo Pants Pro Max</h3>
+        <div class="product-meta">
+            <span class="price">$52.000</span>
+            <div class="colors">
+                <span class="color-dot" style="background: #2B2B2B;"></span>
+                <span class="color-dot" style="background: #6F4E37;"></span>
+                <span class="color-dot" style="background: #4B5320;"></span>
+            </div>
+        </div>
+        <button class="add-to-cart">
+            <span class="material-icons">shopping_cart</span>
+            <span>Agregar al carrito</span>
+        </button>
+    </div>
+</article>
+
+<!-- Producto 4 -->
+<article class="product-card" data-category="new">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Street Jacket">
+        <div class="product-actions">
+            <button class="action-btn wishlist">
+                <span class="material-icons">favorite_border</span>
+            </button>
+            <button class="action-btn quickview">
+                <span class="material-icons">visibility</span>
+            </button>
+        </div>
+        <div class="product-badge new">Nuevo</div>
+    </div>
+    <div class="product-details">
+        <h3>Street Jacket Premium</h3>
+        <div class="product-meta">
+            <span class="price">$78.000</span>
+            <div class="colors">
+                <span class="color-dot" style="background: #000000;"></span>
+                <span class="color-dot" style="background: #B8860B;"></span>
+            </div>
+        </div>
+        <button class="add-to-cart">
+            <span class="material-icons">shopping_cart</span>
+            <span>Agregar al carrito</span>
+        </button>
+    </div>
+</article>
+
+<!-- Producto 5 -->
+<article class="product-card" data-category="bestsellers">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2" alt="Urban Cap">
+        <div class="product-actions">
+            <button class="action-btn wishlist">
+                <span class="material-icons">favorite_border</span>
+            </button>
+            <button class="action-btn quickview">
+                <span class="material-icons">visibility</span>
+            </button>
+        </div>
+    </div>
+    <div class="product-details">
+        <h3>Urban Cap Classic</h3>
+        <div class="product-meta">
+            <span class="price">$25.000</span>
+            <div class="colors">
+                <span class="color-dot" style="background: #000000;"></span>
+                <span class="color-dot" style="background: #FFFFFF;"></span>
+                <span class="color-dot" style="background: #FF0000;"></span>
+            </div>
+        </div>
+        <button class="add-to-cart">
+            <span class="material-icons">shopping_cart</span>
+            <span>Agregar al carrito</span>
+        </button>
+    </div>
+</article>
+
+<!-- Continúa con más productos siguiendo el mismo patrón... -->
+
+        <!-- Añade más productos siguiendo la misma estructura -->
+    </div>
+</section>
+
+        <!-- Añadir más items -->
+    </div>
+</section>
+<div class="quickshop-modal" id="quickshopModal">
+    <div class="modal-content">
+        <button class="modal-close">×</button>
+        <div class="product-preview">
+            <div class="product-gallery">
+                <img src="" alt="Product preview">
+            </div>
+            <div class="product-info">
+                <h3></h3>
+                <p class="price"></p>
+                <div class="size-selector">
+                    <button>S</button>
+                    <button>M</button>
+                    <button>L</button>
+                    <button>XL</button>
+                </div>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<section class="instagram-section">
+    <!-- Agregar el header con el botón de seguir -->
+    <div class="instagram-header">
+        <h2>Síguenos en Instagram</h2>
+        <a href="https://www.instagram.com/facuuargue/" class="follow-btn" target="_blank" rel="noopener">
+            <span class="material-icons">person_add</span>
+            <span>Seguir @facuuargue</span>
+        </a>
+    </div>
+    
+    <div class="instagram-feed">
+        <!-- ... existing feed grid ... -->
+    </div>
+</section>
+            <!-- ... existing profile info ... -->
+        </div>
+    </div>
+    
+    <div class="instagram-feed">
+        <div class="feed-grid">
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1583744946564-b52ac1c389c8" alt="Urban Outfit">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>428</span>
+                        <span><i class="material-icons">chat_bubble</i>32</span>
+                    </div>
+                    <p class="post-caption">Nueva colección disponible 🔥 #UrbanStyle</p>
+                </div>
+            </a>
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3" alt="Sneakers Collection">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>512</span>
+                        <span><i class="material-icons">chat_bubble</i>45</span>
+                    </div>
+                    <p class="post-caption">Llegaron las nuevas Urban Pro 👟 #Sneakers</p>
+                </div>
+            </a>
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27" alt="Hoodie Street">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>367</span>
+                        <span><i class="material-icons">chat_bubble</i>28</span>
+                    </div>
+                    <p class="post-caption">Hoodies premium en stock 🌟 #StreetWear</p>
+                </div>
+            </a>
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011" alt="Urban Collection">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>623</span>
+                        <span><i class="material-icons">chat_bubble</i>51</span>
+                    </div>
+                    <p class="post-caption">¡Nueva temporada, nuevo estilo! 🔥 #NewIn</p>
+                </div>
+            </a>
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7" alt="Street Style">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>445</span>
+                        <span><i class="material-icons">chat_bubble</i>38</span>
+                    </div>
+                    <p class="post-caption">Estilo urbano que no pasa de moda 💯 #UrbanFashion</p>
+                </div>
+            </a>
+            <a href="https://instagram.com/facuuargue" class="instagram-post" target="_blank">
+                <img src="https://images.unsplash.com/photo-1551537482-f2075a1d41f2" alt="Cargo Style">
+                <div class="post-overlay">
+                    <div class="post-stats">
+                        <span><i class="material-icons">favorite</i>389</span>
+                        <span><i class="material-icons">chat_bubble</i>29</span>
+                    </div>
+                    <p class="post-caption">Los cargo más buscados 🔥 #Trending</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section (Actualizado) -->
+<section class="newsletter">
+    <div class="newsletter-content">
+        <div class="newsletter-text">
+            <h2>¡UNITE AL CLUB!</h2>
+            <p>Recibí un <span class="highlight">10% OFF</span> en tu primera compra</p>
+            <ul class="benefits">
+                <li><span class="material-icons">local_offer</span> Descuentos exclusivos</li>
+                <li><span class="material-icons">bolt</span> Acceso anticipado a ventas</li>
+                <li><span class="material-icons">redeem</span> Ofertas especiales</li>
+            </ul>
+        </div>
+        <form class="newsletter-form">
+            <div class="input-group">
+                <input type="email" placeholder="Tu email" required>
+                <button type="submit" class="subscribe-btn">
+                    <span>SUSCRIBIRSE</span>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+            <p class="privacy-text">Al suscribirte, aceptas nuestra <a href="#">política de privacidad</a></p>
+        </form>
+    </div>
+</section>
+
+<!-- Quick Shop Modal -->
+<div class="quickshop-modal" id="quickshopModal">
+    <div class="modal-content">
+        <button class="modal-close">×</button>
+        <div class="product-preview">
+            <div class="product-gallery">
+                <img src="" alt="Product preview" id="modalProductImage">
+            </div>
+            <div class="product-info">
+                <h3 id="modalProductTitle"></h3>
+                <p class="price" id="modalProductPrice"></p>
+                <div class="size-selector">
+                    <button data-size="S">S</button>
+                    <button data-size="M">M</button>
+                    <button data-size="L">L</button>
+                    <button data-size="XL">XL</button>
+                </div>
+                <button class="add-to-cart" id="modalAddToCart">
+                    <span class="material-icons">shopping_cart</span>
+                    Agregar al carrito
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WhatsApp Support Chat -->
+<div class="support-chat">
+    <a href="https://wa.me/543758545846" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span class="chat-badge">1</span>
+    </a>
+</div>
+<footer></footer>
+</body>
+<script src="navbar.js"></script>
+<script src="producto.js"></script>
+<script src="features.js"></script>
+
+</html>

@@ -1,0 +1,146 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    background: url('https://imgs.search.brave.com/ZnHWzSXJFVS-i5GIHk4GQHTxvbn8nr_2MV7IJpAK0RY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXIuZm9yZnVu/LmNvbS9mZXRjaC8z/OS8zOWUxODY5ZWU2/MDgzNTZlOGY2NTc4/MGIzMWJhMjIyMy5q/cGVn') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login {
+    background: rgba(24, 25, 26, 0.38);
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(24, 25, 26, 0.25);
+    width: 350px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    backdrop-filter: blur(7px);
+    border: 1.5px solid rgba(255,255,255,0.13);
+}
+
+.login h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px #0008;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e63946;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    transition: border 0.2s, background 0.2s;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+    border-color: #e63946;
+    outline: none;
+    background: #fff;
+}
+
+.remember_me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+    color: #eee;
+}
+
+.remember_me input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #e63946;
+}
+
+.submit input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(90deg, #e63946 0%, #ff4d5a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 12px #e6394633;
+}
+
+.submit input[type="submit"]:hover {
+    background: linear-gradient(90deg, #ff4d5a 0%, #e63946 100%);
+}
+
+.login-help {
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.login-help a {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.2s;
+}
+
+.login-help a:hover {
+    text-decoration: underline;
+}
+
+ proyecto\index.css
+/* ...existing code... */
+
+/* Estilos adicionales para el formulario de registro */
+#registerForm {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#registerForm.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes para inputs de email */
+.login input[type="email"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e63946;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    transition: border 0.2s, background 0.2s;
+}
+
+.login input[type="email"]:focus {
+    border-color: #e63946;
+    outline: none;
+    background: #fff;
+}
